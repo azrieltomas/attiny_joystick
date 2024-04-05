@@ -2,7 +2,7 @@
 
 This reads the analogue inputs from two potentiometers and one digital switch, and transmits this data as a single byte over i2c.
 
-This relies on TinyWireS, specifically [svoisen's version](https://github.com/svoisen/TinyWire)
+This relies on TinyWireS, specifically [svoisen's version](https://github.com/svoisen/TinyWire)\
 Further details on i2c with the ATtiny can be found there and on [rambo's tinywire](https://github.com/rambo/TinyWire)
 
 ![Wiring](images/wiring.png)
@@ -13,7 +13,7 @@ Further details on i2c with the ATtiny can be found there and on [rambo's tinywi
 ### ADC
 The controller requires two ADC conversions. For absolute simplicity I'm only using half the register for an 8-bit conversion. These have to be set manually and forced to wait, or the code will only return 0x00 for one or more conversions.
 
-A centre deadzone is set so slight movements and jitter do give a reading.
+A centre deadzone is set so slight movements and jitter do not give a reading.
 
 <br/>
 
@@ -23,6 +23,8 @@ To minimise data transmission, everything is sent encoded within a single byte. 
 The sent byte is 5 bits plus padding:
 | LEFT_FLAG | RIGHT_FLAG | UP_FLAG | DOWN_FLAG | BUTTON_FLAG | 
 The i2c master can simply bit compare to get the current position of the joystick
+
+<br/>
 
 ### Alternative i2C Data
 3 bytes are sent:
@@ -37,8 +39,8 @@ A start nibble can be omitted but I have concerns about the master system losing
 
 ### Fuses
 I've used a TL866II rather than AVR and set the following fuses *only*:
-    - SUT0=0
-    - CKSEL3=0
-    - CKSEL2=0
-    - CKSEL0=0
-    - RSTDISBL=0
+* SUT0=0
+* CKSEL3=0
+* CKSEL2=0
+* CKSEL0=0
+* RSTDISBL=0

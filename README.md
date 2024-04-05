@@ -28,11 +28,11 @@ The i2c master can simply bit compare to get the current position of the joystic
 
 ### Alternative i2C Data
 3 bytes are sent:
-    1. Header and switch byte:
-        * Start nibble: 0xA (0b1010)
-        * Switch nibble 0xF (on) or 0x0 (off)
-    2. X position byte
-    3. Y position byte
+1. Header and switch byte:
+    * Start nibble: 0xA (0b1010)
+    * Switch nibble 0xF (on) or 0x0 (off)
+2. X position byte
+3. Y position byte
 
 A start nibble can be omitted but I have concerns about the master system losing sync as to which byte is being read. This just adds a way to check.
 

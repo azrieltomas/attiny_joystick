@@ -22,7 +22,7 @@ To minimise data transmission, everything is sent encoded within a single byte. 
 
 The sent byte is 5 bits plus padding:
 | LEFT_FLAG | RIGHT_FLAG | UP_FLAG | DOWN_FLAG | BUTTON_FLAG |\
-The i2c master can simply bit compare to get the current position of the joystick
+The i2c master can simply bit compare to get the current position of the joystick.
 
 <br/>
 
@@ -34,7 +34,7 @@ The i2c master can simply bit compare to get the current position of the joystic
 2. X position byte
 3. Y position byte
 
-A start nibble can be omitted but I have concerns about the master system losing sync as to which byte is being read. This just adds a way to check.
+The start nibble can be omitted but I have concerns about the master system losing sync as to which byte is being read. This just adds a way to check.
 
 <br />
 

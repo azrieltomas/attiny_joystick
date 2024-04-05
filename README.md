@@ -21,12 +21,12 @@ A centre deadzone is set so slight movements and jitter do not give a reading.
 To minimise data transmission, everything is sent encoded within a single byte. At this point I only care about an absolute value, eg. *has the joystick been moved up? or left? or the button pressed?* It is very easy though to send the actual reading as a whole byte (and this is also why its useful to only do an 8-bit conversion).
 
 The sent byte is 5 bits plus padding:
-| LEFT_FLAG | RIGHT_FLAG | UP_FLAG | DOWN_FLAG | BUTTON_FLAG | 
+| LEFT_FLAG | RIGHT_FLAG | UP_FLAG | DOWN_FLAG | BUTTON_FLAG |\
 The i2c master can simply bit compare to get the current position of the joystick
 
 <br/>
 
-### Alternative i2C Data
+### Alternative i2c Data
 3 bytes are sent:
 1. Header and switch byte:
     * Start nibble: 0xA (0b1010)
